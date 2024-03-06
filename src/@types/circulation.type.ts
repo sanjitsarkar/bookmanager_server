@@ -1,21 +1,28 @@
+import { EventType } from "../model/circulation.model"
 
 export interface ICheckoutBookParams {
   bookId: number,
-  memberId: string,
+  memberId: number,
 }
 export interface IReturnBookParams {
   bookId: number,
-  memberId: string,
+  memberId: number,
 }
 
 export interface IReturnBookResponse {
-  bookId: string,
-  memberID: string,
+  bookId: number,
+  memberID: number,
 }
 
 export interface ICirculation {
-  book_id: string,
-  member_id: string
+  book_id: number,
+  member_id: number
   eventtype: string,
   date: string
+}
+export interface IGetBookStatuses {
+  memberId: number, bookId: number
+}
+export interface IRemoveBookStatus {
+  memberId: number, bookId: number, eventType: EventType
 }

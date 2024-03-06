@@ -6,8 +6,11 @@ export const getBooks = async (_req: Request, res: Response) => {
 }
 export const getOverDueBooksWithFine = async (req: Request, res: Response) => {
   const { memberId } = req.params
-  console.log({ memberId })
-  const books = await booksService.getOverdDueBooksWithFine(memberId);
-  console.log({ books })
-  res.status(200).json(books)
+  try {
+    const books = await booksService.getOverdDueBooksWithFine(Number(memberId));
+    res.status(200).json(books)
+  }
+  catch (err) {
+    res.status(400).json(err)
+  }
 }

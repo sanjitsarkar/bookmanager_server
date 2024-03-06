@@ -15,12 +15,13 @@ class BookService {
       return books;
     }
     catch (err) {
-      throw new Error("Error fetching books")
+      throw new Error(err)
     }
   }
-  async getOverdDueBooksWithFine(memberId: string) {
+  async getOverdDueBooksWithFine(memberId: number) {
     try {
       const books = await this._circularRepository.getOverDuedBooksWithFine(memberId);
+
       if (!books) {
         throw new Error("Error fetching overdued books")
 
@@ -30,7 +31,7 @@ class BookService {
 
     }
     catch (err) {
-      throw new Error("Error fetching overdued books")
+      throw new Error(err)
 
     }
   }

@@ -3,15 +3,15 @@ import { ICirculation } from "../@types/circulation.type";
 
 export enum EventType {
   RETURN = "return",
-  CHECKOUT = "return"
+  CHECKOUT = "checkout"
 }
 const circulationSchema = new Schema({
   book_id: {
-    type: String,
+    type: Number,
     required: true
   },
   member_id: {
-    type: String,
+    type: Number,
     required: true
   },
   eventtype: {

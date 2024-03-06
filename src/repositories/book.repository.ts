@@ -8,10 +8,11 @@ export class BookRepository {
   }
   async updateNumberOfCopies(params: IUpdateNumberOfCopiesParams): Promise<IBook> {
     const { bookId, updateType } = params;
-    return await this._bookModel.findOneAndUpdate({ bookId }, {
-      $set: {
-        $inc: updateType === IUpdateType.INCREMENT ? 1 : -1
+    return await this._bookModel.findOneAndUpdate({ BookID: bookId }, {
+      $inc: {
+        NumberOfCopies: updateType === IUpdateType.INCREMENT ? 1 : -1
       }
+
     });
   }
   async getBook(bookId: number): Promise<IBook> {

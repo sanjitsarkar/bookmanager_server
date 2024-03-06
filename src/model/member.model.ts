@@ -1,14 +1,15 @@
 import { Schema, model } from "mongoose"
+import { IMember } from "../@types/member.type";
 
 const memberSchema = new Schema({
-  firstName: {
+  MemberName: {
     type: String,
     required: true,
   },
-  lastName: {
-    type: String,
+  MemberID: {
+    type: Number,
     required: String,
   }
 })
 
-export default model("member", memberSchema);
+export default model<IMember>("member", memberSchema);
