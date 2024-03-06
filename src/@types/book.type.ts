@@ -9,6 +9,6 @@ export enum IUpdateType {
   DECREMENT = "decrement"
 }
 export interface IUpdateNumberOfCopiesParams {
-  bookId: string,
+  bookId: number,
   updateType: IUpdateType
 }
